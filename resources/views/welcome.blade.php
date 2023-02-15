@@ -16,11 +16,13 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            <h1>Cadastro de Produtos</h1>
-            <p>Nome: <input type="text"></p>  
-            <p>Preço: <input type="text"></p>
-            <p><button>Cadastrar</button></p>
-        </div>
+        <div class="flex flex-col relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            <div class="p-4">
+                <h1>Cadastro de Produtos</h1>
+                <p>Nome: <input type="text"></p>  
+                <p>Preço: <input type="text"></p>
+                <p><button>Cadastrar</button></p>
+            </div>
+        </div>   
     </body>
 </html>
