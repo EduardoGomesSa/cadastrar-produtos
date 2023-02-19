@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CadastroModel extends Model
 {
     use HasFactory;
+
+    protected $table = 'produtos';
+    protected $primaryKey = 'produto_id';
 }
