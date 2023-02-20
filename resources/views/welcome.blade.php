@@ -15,9 +15,11 @@
         <div>
             <div>
                 <h1>Cadastro de Produtos</h1>
-                <p>Nome: <input type="text"></p>  
-                <p>Preço: <input type="text"></p>
-                <p><button>Cadastrar</button></p>
+                <form onSubmit={submit}>
+                    <p>Nome: <input type="text"></p>  
+                    <p>Preço: <input type="text"></p>
+                    <p><button>Cadastrar</button></p>
+                </form>
             </div>
         </div>   
     </body>

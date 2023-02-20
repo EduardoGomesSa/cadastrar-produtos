@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class CadastroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): string
+    public function index()
     {
-        return 'Funcionou CARALHOOOOOOOO! EU TO FELIZ PARA CARAMBOLASSSSSS';
+        return Inertia::render('Cadastro/Index', ['Eu sou Eduardo']);
     }
 
     /**
