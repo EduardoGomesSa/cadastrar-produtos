@@ -27,9 +27,16 @@ class CadastroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        //
+        $validated = $request -> validate([
+            'nome' => 'required | string | max:50',
+            'preco' => 'required | decimal'
+        ]);
+
+        $request->user()->cadastro()->create($validated);
+ 
+        return redirect(route('cadastro.index'));
     }
 
     /**
