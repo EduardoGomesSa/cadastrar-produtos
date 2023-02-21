@@ -30,10 +30,13 @@ class CadastroController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request -> validate([
+        $validated = $request 
+            -> validate([
             'nome' => 'required | string | max:50',
-            'preco' => 'required | decimal'
-        ]);
+            ]);
+        //     -> validateNumeric([
+        //     'preco' => 'required | number'
+        // ]);
 
         $request->user()->cadastro()->create($validated);
  
