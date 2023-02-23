@@ -38,7 +38,7 @@ class CadastroController extends Controller
         //     'preco' => 'required | number'
         // ]);
 
-        $request->user()->cadastro()->create($validated);
+        $request->user()->cadastros()->create($validated);
  
         return redirect(route('cadastro.index'));
     }
