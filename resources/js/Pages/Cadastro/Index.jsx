@@ -20,7 +20,7 @@ export default function Index(){
                 <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
                     <form onSubmit={submit}>
                         <p>Nome: <input type="text" onChange={e => setData('nome', e.target.value)} /></p>  
-                        <p className='mt-4'>Preço: <input type="text" onChange={e => setData('preco', e.target.value)} /></p>
+                        <p className='mt-4'>Preço: <input type="number" onChange={e => setData('preco', e.target.value)} /></p>
                         <PrimaryButton className='mt-4' processing={processing}>Produto</PrimaryButton>
                     </form>
                 </div>
