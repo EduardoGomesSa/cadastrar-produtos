@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CadastroModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -33,14 +34,29 @@ class CadastroController extends Controller
         $validated = $request 
             -> validate([
             'nome' => 'required | string | max:50',
-            ]);
-        //     -> validateNumeric([
+            ])
+            -> validateNumeric([
+                'preco' => 'required | number'
+                ]);
+        
+        // $validated -> preco = $request 
+        //     -> validate([
         //     'preco' => 'required | number'
         // ]);
+        
+        // $validated = $request -> nome;
+        // $validated =  $request -> preco;
 
-        $request->user()->cadastros()->create($validated);
+
+        // $produto = new CadastroModel;
+        // $produto -> nome = $request -> nome;
+        // $produto -> preco = $request -> preco;
+
+        $validated -> save();
+
+        //$request->user()->cadastros()->create($validated);
  
-        return redirect(route('cadastro.index'));
+        return redirect(route('cadastros.index'));
     }
 
     /**
