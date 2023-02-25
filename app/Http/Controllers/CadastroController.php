@@ -13,6 +13,10 @@ class CadastroController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function mostrar(){
+        return view('cadastro');
+    }
+    
     public function index()
     {
         return Inertia::render('Cadastro/Index', ['Eu sou Eduardo']);
