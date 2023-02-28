@@ -38,10 +38,7 @@ class CadastroController extends Controller
         $validated = $request 
             -> validate([
             'nome' => 'required | string | max:50',
-            ])
-            -> validateNumeric([
-                'preco' => 'required | number'
-                ]);
+            ]);
         
         // $validated -> preco = $request 
         //     -> validate([
@@ -56,9 +53,9 @@ class CadastroController extends Controller
         // $produto -> nome = $request -> nome;
         // $produto -> preco = $request -> preco;
 
-        $validated -> save();
+        //$validated -> save();
 
-        //$request->user()->cadastros()->create($validated);
+        $request->user()->cadastros()->create($validated);
  
         return redirect(route('cadastros.index'));
     }
