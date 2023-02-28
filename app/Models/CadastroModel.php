@@ -12,7 +12,7 @@ class CadastroModel extends Model
 
     protected $fillable = [
         'nome',
-        'preco'
+        'preco',
     ];
 
     protected $table = 'produtos';
