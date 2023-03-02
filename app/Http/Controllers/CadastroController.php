@@ -60,6 +60,7 @@ class CadastroController extends Controller
         CadastroModel::create([
             'nome' => $request -> nome,
             'preco' => $request -> preco,
+            'user_id' => $request -> user() -> id
         ]);
  
         return redirect(route('cadastros.index'));
