@@ -17,9 +17,4 @@ class CadastroModel extends Model
 
     protected $table = 'produtos';
     protected $primaryKey = 'produto_id';
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
