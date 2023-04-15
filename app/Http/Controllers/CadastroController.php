@@ -16,7 +16,7 @@ class CadastroController extends Controller
     public function mostrar(){
         return view('cadastro');
     }
-    
+
     public function index()
     {
         return Inertia::render('Cadastro/Index', ['Eu sou Eduardo']);
@@ -35,16 +35,16 @@ class CadastroController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request 
+        $validated = $request
             -> validate([
             'nome' => 'required | string | max:50',
             ]);
-        
-        // $validated -> preco = $request 
+
+        // $validated -> preco = $request
         //     -> validate([
         //     'preco' => 'required | number'
         // ]);
-        
+
         // $validated = $request -> nome;
         // $validated =  $request -> preco;
 
@@ -58,11 +58,11 @@ class CadastroController extends Controller
         //$request->user()->cadastros()->create($validated);
 
         CadastroModel::create([
-            'nome' => $request -> nome,
-            'preco' => $request -> preco,
-            'user_id' => $request -> user() -> id
+            'nome' => $request->nome,
+            'preco' => $request->preco,
+            'user_id' => $request->user()->id
         ]);
- 
+
         return redirect(route('cadastros.index'));
     }
 
