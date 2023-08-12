@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\CadastroModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CadastroModel extends Model
+class Produto extends Model
 {
     use HasFactory;
 
@@ -14,7 +13,4 @@ class CadastroModel extends Model
         'nome',
         'preco',
     ];
-
-    protected $table = 'produtos';
-    protected $primaryKey = 'produto_id';
 }
