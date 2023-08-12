@@ -20,4 +20,16 @@ class ProdutoController extends Controller
             $this->produto->all()
         );
     }
+
+    public function store(ProdutoRequest $request){
+        $produtoCriado = $this->produto->create($request->all());
+
+        if($produtoCriado){
+            $resource = new ProdutoResource($produtoCriado);
+
+            return $resource->response()->setStatusCode(201);
+        }
+
+        return response(['error'=>'produto não foi criado'])->setStatusCode(401);
+    }
 }
