@@ -44,4 +44,16 @@ class ProdutoController extends Controller
 
         return response(['error'=>'produto não existe'])->setStatusCode(404);
     }
+
+    public function destroy($id){
+        $produtoExiste = $this->produto->find($id);
+
+        if($produtoExiste){
+            $produtoExiste->delete();
+
+            return response(['message'=>'produto deletado com sucesso'])->setStatusCode(200);
+        }
+
+        return response(['error'=>'produto não existe'])->setStatusCode(404);
+    }
 }
