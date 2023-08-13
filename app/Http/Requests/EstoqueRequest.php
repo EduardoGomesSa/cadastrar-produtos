@@ -11,7 +11,7 @@ class EstoqueRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class EstoqueRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'produto_id'=>'required',
+            'quantidade'=>'required|min:1'
         ];
     }
 }
