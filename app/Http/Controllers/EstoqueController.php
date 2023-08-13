@@ -28,27 +28,39 @@ class EstoqueController extends Controller
         if($estoqueExiste){
             $quantidade = $estoqueExiste->quantidade + $request->quantidade;
 
-            $estoqueExiste->update(['quantidade'=>$quantidade]);
+            $estoqueAtualizado = $estoqueExiste->update(['quantidade'=>$quantidade]);
 
-            $resource = new EstoqueResource($estoqueExiste);
+            if($estoqueAtualizado > 0){
+                $resource = new EstoqueResource($estoqueExiste);
 
-            return $resource->response()->setStatusCode(200);
+                return $resource->response()->setStatusCode(200);
+            }
+
+            return response(['error'=>'não foi possível atualizar esse estoque já existente'])->setStatusCode(400);
         }
 
         $estoqueCriado = $this->estoque->create($request->all);
 
-        $resource = new EstoqueResource($estoqueCriado);
+        if($estoqueCriado){
+            $resource = new EstoqueResource($estoqueCriado);
 
-        return $resource->response()->setStatusCode(201);
+            return $resource->response()->setStatusCode(201);
+        }
+
+        return response(['error'=>'não foi possível criar o estoque'])->setStatusCode(400);
     }
 
     public function update(EstoqueRequest $request, $id){
         $estoqueExiste = $this->estoque->find($id);
 
         if($estoqueExiste){
-            $estoqueExiste->update($request->all());
+            $estoqueAtualizado = $estoqueExiste->update($request->all());
 
-            return response(['message'=>'estoque atualizado com sucesso'])->setStatusCode(200);
+            if($estoqueAtualizado > 0){
+                return response(['message'=>'estoque atualizado com sucesso'])->setStatusCode(200);
+            }
+
+            return response(['error'=>'não foi possível atualizar o estoque'])->setStatusCode(400);
         }
 
         return response(['error'=>'estoque não existe'])->setStatusCode(404);
