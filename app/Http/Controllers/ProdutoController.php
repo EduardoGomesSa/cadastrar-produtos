@@ -32,4 +32,16 @@ class ProdutoController extends Controller
 
         return response(['error'=>'produto não foi criado'])->setStatusCode(401);
     }
+
+    public function update(ProdutoRequest $request, $id){
+        $produtoExiste = $this->produto->find($id);
+
+        if($produtoExiste){
+            $produtoExiste->update($request->all());
+
+            return response(['message'=>'produto atualizado com sucesso'])->setStatusCode(200);
+        }
+
+        return response(['error'=>'produto não existe'])->setStatusCode(404);
+    }
 }
