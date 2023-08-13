@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('estoques', function (Blueprint $table) {
             $table->id();
+            $table->integer('quantidade');
+            $table->foreignId('produto_id')
+                ->constrained('produtos')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
             $table->timestamps();
         });
     }
