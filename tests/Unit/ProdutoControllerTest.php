@@ -1,7 +1,9 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
+use App\Http\Controllers\ProdutoController;
+use App\Models\Produto;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
