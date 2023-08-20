@@ -19,4 +19,16 @@ class ProdutoControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function index_success(){
+
+    }
+
+    public function store_success(){
+
+    }
+
+    public function update_success(){
+
+    }
 }
