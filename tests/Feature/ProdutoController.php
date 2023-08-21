@@ -18,7 +18,7 @@ class ProdutoController extends TestCase
         $response->assertStatus(200);
     }
 
-    public function index_success(): void{
+    public function test_index_success(): void{
         $response = $this->get('/aaaa');
 
         $response->assertStatus(404);

@@ -20,17 +20,17 @@ class ProdutoControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function index_success(): void{
+    public function test_index_success(): void{
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
 
-    public function store_success(){
+    public function test_store_success(){
         $this->assertTrue(true);
     }
 
-    public function update_success(){
+    public function test_update_success(){
         $this->assertTrue(true);
     }
 }
