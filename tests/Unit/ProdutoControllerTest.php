@@ -26,8 +26,15 @@ class ProdutoControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_store_success(){
-        $this->assertTrue(true);
+    public function test_store_success(): void{
+        $data = [
+            'nome'=>'teste',
+            'preco'=>1,
+        ];
+
+        $response = $this->post('/produtos', $data);
+
+        $response->assertStatus(201);
     }
 
     public function test_update_success(){
